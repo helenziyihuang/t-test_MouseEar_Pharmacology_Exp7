@@ -13,8 +13,9 @@ int main(){
     
     // General Info
     cout << endl;
-    cout << "---->This program will help you calculate the t value to compare the mean edema weight of the control group and of one treatment group." << endl;
-    cout << endl;
+    cout << "WELCOME!" << endl;
+    cout << "This program will help you calculate the t value to compare the mean edema weight of the control group and of one treatment group." << endl;
+    cout << endl << endl;
     
     
     // Control Group -------------------------------------------
@@ -27,7 +28,7 @@ int main(){
     double ctrlSD;
     double ctrlSE;
     
-    cout << "Enter the number of individuals in your CONTROL group: ";
+    cout << "* Enter the number of mice in your CONTROL group: ";
     cin >> ctrlNum;
     cout << endl;
     
@@ -37,7 +38,7 @@ int main(){
     //Get raw data
     cout << "Enter the edema value (in mg) and press enter for" << endl;
     for(int i=0; i<ctrlNum; i++){
-        cout << "Individual " << i+1 << ": ";
+        cout << "Mouse " << i+1 << ": ";
         cin >> ctrlV[i];
         
         ctrlSum += ctrlV[i];
@@ -66,7 +67,7 @@ int main(){
     cout << "Variance:              " << fixed << setprecision(3) << ctrlVariance << endl;
     cout << "Standard Deviation:    " << fixed << setprecision(3) << ctrlSD << endl;
     cout << "Standard Error:        " << fixed << setprecision(3) << ctrlSE << endl;
-    cout << endl;
+    cout << endl << endl;
     
     
     // Treatment Group -------------------------------------------
@@ -79,7 +80,7 @@ int main(){
     double trSD;
     double trSE;
     
-    cout << "Enter the number of individuals in your TREATMENT group: ";
+    cout << "* Enter the number of mice in your TREATMENT group: ";
     cin >> trNum;
     cout << endl;
     
@@ -89,7 +90,7 @@ int main(){
     //Get raw data
     cout << "Enter the edema value (in mg) and press enter for" << endl;
     for(int i=0; i<trNum; i++){
-        cout << "Individual " << i+1 << ": ";
+        cout << "Mouse " << i+1 << ": ";
         cin >> trV[i];
         
         trSum += trV[i];
@@ -118,7 +119,7 @@ int main(){
     cout << "Variance:              " << fixed << setprecision(3) << trVariance << endl;
     cout << "Standard Deviation:    " << fixed << setprecision(3) << trSD << endl;
     cout << "Standard Error:        " << fixed << setprecision(3) << trSE << endl;
-    cout << endl;
+    cout << endl << endl;
     
     
 };
