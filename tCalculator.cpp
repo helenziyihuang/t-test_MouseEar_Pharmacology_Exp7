@@ -20,22 +20,23 @@ int main(){
     // Control Group -------------------------------------------
     
     //Control Variables
-    int ctrlNumIndi;
+    int ctrlNum;
     double ctrlSum = 0;
     double ctrlVariance = 0;
     double ctrlMean;
     double ctrlSD;
+    double ctrlSE;
     
     cout << "Enter the number of individuals in your CONTROL group: ";
-    cin >> ctrlNumIndi;
+    cin >> ctrlNum;
     cout << endl;
     
     //Create an array to hold the value
-    double ctrlV[ctrlNumIndi];
+    double ctrlV[ctrlNum];
     
     //Get raw data
     cout << "Enter the edema value (in mg) and press enter for" << endl;
-    for(int i=0; i<ctrlNumIndi; i++){
+    for(int i=0; i<ctrlNum; i++){
         cout << "Individual " << i+1 << ": ";
         cin >> ctrlV[i];
         
@@ -44,22 +45,27 @@ int main(){
     cout << endl;
     
     //Calculate Mean
-    ctrlMean = ctrlSum / ctrlNumIndi;
+    ctrlMean = ctrlSum / ctrlNum;
     
     //Calculate Variance
-    for(int i=0; i<ctrlNumIndi; i++){
+    for(int i=0; i<ctrlNum; i++){
         ctrlVariance += pow((ctrlV[i] - ctrlMean), 2);
     }
-    ctrlVariance /= (ctrlNumIndi - 1);
+    ctrlVariance /= (ctrlNum - 1);
     
     //Calculate Standard Deviation
     ctrlSD = sqrt(ctrlVariance);
+    
+    //Calculate Standard Error
+    ctrlSE = sqrt(ctrlVariance/ctrlNum);
     
     //Display Control Calculation Results
     cout << "----Control Group Analysis----" << endl;
     
     cout << "Mean:                  " << fixed << setprecision(3) << ctrlMean << endl;
     cout << "Variance:              " << fixed << setprecision(3) << ctrlVariance << endl;
-    cout << "Standard Deviation:    " << fixed << setprecision(3) << ctrlVariance << endl;
+    cout << "Standard Deviation:    " << fixed << setprecision(3) << ctrlSD << endl;
+    cout << "Standard Error:        " << fixed << setprecision(3) << ctrlSE << endl;
+    
     
 };
