@@ -10,10 +10,6 @@
 using namespace std;
 
 int main(){
-    int ctrlNumIndi;
-    double ctrlSum = 0;
-    double ctrlVariance = 0;
-    double ctrlMean;
     
     // General Info
     cout << endl;
@@ -23,6 +19,13 @@ int main(){
     
     // Control Group -------------------------------------------
     
+    //Control Variables
+    int ctrlNumIndi;
+    double ctrlSum = 0;
+    double ctrlVariance = 0;
+    double ctrlMean;
+    double ctrlSD;
+    
     cout << "Enter the number of individuals in your CONTROL group: ";
     cin >> ctrlNumIndi;
     cout << endl;
@@ -31,8 +34,9 @@ int main(){
     double ctrlV[ctrlNumIndi];
     
     //Get raw data
+    cout << "Enter the edema value (in mg) and press enter for" << endl;
     for(int i=0; i<ctrlNumIndi; i++){
-        cout << "Enter the data for individual " << i << ": ";
+        cout << "Individual " << i+1 << ": ";
         cin >> ctrlV[i];
         
         ctrlSum += ctrlV[i];
@@ -48,7 +52,14 @@ int main(){
     }
     ctrlVariance /= (ctrlNumIndi - 1);
     
-    cout << "Mean of the Control: " << fixed << setprecision(3) << ctrlMean << endl;
-    cout << "Variance of the Control: " << fixed << setprecision(3) << ctrlVariance << endl;
+    //Calculate Standard Deviation
+    ctrlSD = sqrt(ctrlVariance);
+    
+    //Display Control Calculation Results
+    cout << "----Control Group Analysis----" << endl;
+    
+    cout << "Mean:                  " << fixed << setprecision(3) << ctrlMean << endl;
+    cout << "Variance:              " << fixed << setprecision(3) << ctrlVariance << endl;
+    cout << "Standard Deviation:    " << fixed << setprecision(3) << ctrlVariance << endl;
     
 };
