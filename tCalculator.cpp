@@ -43,7 +43,6 @@ int main(){
         
         ctrlSum += ctrlV[i];
     }
-    cout << endl;
     
     //Calculate Mean
     ctrlMean = ctrlSum / ctrlNum;
@@ -60,13 +59,6 @@ int main(){
     //Calculate Standard Error
     ctrlSE = sqrt(ctrlVariance/ctrlNum);
     
-    //Display Control Calculation Results
-    cout << "----Control Group Analysis----" << endl;
-    
-    cout << "Mean:                  " << fixed << setprecision(3) << ctrlMean << endl;
-    cout << "Variance:              " << fixed << setprecision(3) << ctrlVariance << endl;
-    cout << "Standard Deviation:    " << fixed << setprecision(3) << ctrlSD << endl;
-    cout << "Standard Error:        " << fixed << setprecision(3) << ctrlSE << endl;
     cout << endl << endl;
     
     
@@ -95,7 +87,6 @@ int main(){
         
         trSum += trV[i];
     }
-    cout << endl;
     
     //Calculate Mean
     trMean = trSum / trNum;
@@ -112,13 +103,6 @@ int main(){
     //Calculate Standard Error
     trSE = sqrt(trVariance/trNum);
     
-    //Display Control Calculation Results
-    cout << "----Treatment Group Analysis----" << endl;
-    
-    cout << "Mean:                  " << fixed << setprecision(3) << trMean << endl;
-    cout << "Variance:              " << fixed << setprecision(3) << trVariance << endl;
-    cout << "Standard Deviation:    " << fixed << setprecision(3) << trSD << endl;
-    cout << "Standard Error:        " << fixed << setprecision(3) << trSE << endl;
     cout << endl << endl;
     
     
@@ -130,21 +114,45 @@ int main(){
     t = (trMean - ctrlMean) * sqrt(ctrlNum) / sqrt(trVariance + ctrlVariance);
     df = ctrlNum + trNum - 2;
     
-    cout << "* t-test Results" << endl;
-    cout << "Degree of Freedom:     " << df << endl;
-    cout << "t value:               " << fixed << setprecision(3) << t << endl;
+    
+    // Display Results -------------------------------------------
+    cout << "* Your results: " << endl;
+    
+    //Display Control Calculation Results
+    cout << "----   Control Group Analysis      ----" << endl;
+    
+    cout << "Mean:                      " << fixed << setprecision(3) << ctrlMean << endl;
+    cout << "Variance:                  " << fixed << setprecision(3) << ctrlVariance << endl;
+    cout << "Standard Deviation:        " << fixed << setprecision(3) << ctrlSD << endl;
+    cout << "Standard Error:            " << fixed << setprecision(3) << ctrlSE << endl;
     cout << endl;
     
-    //Assume the df of this experiment is 8
-    //The result is significant if t > 1.859548
+    //Display Treatment Calculation Results
+    cout << "----   Treatment Group Analysis    ----" << endl;
+    
+    cout << "Mean:                      " << fixed << setprecision(3) << trMean << endl;
+    cout << "Variance:                  " << fixed << setprecision(3) << trVariance << endl;
+    cout << "Standard Deviation:        " << fixed << setprecision(3) << trSD << endl;
+    cout << "Standard Error:            " << fixed << setprecision(3) << trSE << endl;
+    cout << endl;
+    
+    //Display t-test Results
+    cout << "----       t-test Results          ----" << endl;
+    cout << "Degree of Freedom:         " << df << endl;
+    cout << "t value:                   " << fixed << setprecision(3) << t << endl;
+    cout << endl;
+    
+    /*
+     Assume the df of this experiment is 8
+     & the result is considered significant if p < 0.05
+     The result is significant if t > 1.859548
+     **/
     if(t > 1.859848){
         cout << "Your t value indicates that the different between your control and your treatment group is statistically significant." << endl;
     }
     else{
         cout << "Your t value indicates that the different between your control and your treatment group is NOT statistically significant." << endl;
     }
-    
-    
     cout << endl << endl;
     
     
