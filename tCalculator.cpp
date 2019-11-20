@@ -11,7 +11,7 @@ using namespace std;
 
 int main(){
     
-    // General Info
+    // General Info -------------------------------------------
     cout << endl;
     cout << "WELCOME!" << endl;
     cout << "This program will help you calculate the t value to compare the mean edema weight of the control group and of one treatment group." << endl;
@@ -122,4 +122,32 @@ int main(){
     cout << endl << endl;
     
     
+    // t-test -------------------------------------------
+    
+    double t;
+    int df;
+    
+    t = (trMean - ctrlMean) * sqrt(ctrlNum) / sqrt(trVariance + ctrlVariance);
+    df = ctrlNum + trNum - 2;
+    
+    cout << "* t-test Results" << endl;
+    cout << "Degree of Freedom:     " << df << endl;
+    cout << "t value:               " << fixed << setprecision(3) << t << endl;
+    cout << endl;
+    
+    //Assume the df of this experiment is 8
+    //The result is significant if t > 1.859548
+    if(t > 1.859848){
+        cout << "Your t value indicates that the different between your control and your treatment group is statistically significant." << endl;
+    }
+    else{
+        cout << "Your t value indicates that the different between your control and your treatment group is NOT statistically significant." << endl;
+    }
+    
+    
+    cout << endl << endl;
+    
+    
+    // General Info -------------------------------------------
+    cout << "THANKS FOR USING!" << endl;
 };
